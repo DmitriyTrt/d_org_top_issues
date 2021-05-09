@@ -25,7 +25,11 @@
 /web/sites/README.txt
 /web/themes/README.txt
 
-/web/sites/
+/web/sites/*
 
 /.editorconfig
 /.gitattributes
+
+!/web/sites/default/
+/web/sites/default/*
+!/web/sites/default/services.yml
