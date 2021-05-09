@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function d_org_top_issues_theme() {
+  $hooks = [];
+
+  $hooks['d_org_top_issues'] = [
+    'variables' => [
+      'issues' => [],
+    ],
+    'template' => 'd-org-top-issues',
+  ];
+
+  return $hooks;
+}

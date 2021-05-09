@@ -1,0 +1,31 @@
+services:
+  cache.d_org_top_issues:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: cache_factory:get
+    arguments:
+      - d_org_top_issues
+
+  d_org_top_issues.client_factory:
+    class: Drupal\d_org_top_issues\DrupalOrg\ClientFactory
+
+  d_org_top_issues.project_provider:
+    class: Drupal\d_org_top_issues\DrupalOrg\ProjectProvider
+    arguments:
+      - '@cache.d_org_top_issues'
+      - '@d_org_top_issues.client_factory'
+
+  d_org_top_issues.top_issues_provider:
+    class: Drupal\d_org_top_issues\DrupalOrg\TopIssuesProvider
+    arguments:
+      - '@d_org_top_issues.client_factory'
+      - '@cache.d_org_top_issues'
+      - '@lock'
+      - '@datetime.time'
+      - '@cache_tags.invalidator'
+
+  d_org_top_issues.top_issues_builder:
+    class: Drupal\d_org_top_issues\Render\TopIssuesBuilder
+    arguments:
+      - '@d_org_top_issues.top_issues_provider'

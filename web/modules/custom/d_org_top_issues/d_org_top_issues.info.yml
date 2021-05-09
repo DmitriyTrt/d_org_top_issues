@@ -1,0 +1,6 @@
+name: Drupal.org Top Issues
+description: Provides a block with project top issues.
+package: Custom
+type: module
+core_version_requirement: ^8.8 || ^9
+php: 7.3

@@ -1,0 +1,13 @@
+block.settings.d_org_top_issues:
+  type: block_settings
+  label: 'Top issues from Drupal.org block'
+  mapping:
+    project_name:
+      type: string
+      label: 'Project name'
+    project_id:
+      type: integer
+      label: 'Project ID'
+    limit:
+      type: integer
+      label: 'Maximum number of issues displayed'

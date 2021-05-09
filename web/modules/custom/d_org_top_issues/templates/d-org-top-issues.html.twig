@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a list of Drupal.org issues.
+ *
+ * Available variables:
+ * - issues: The list of issues or NULL in case they're loading at the moment.
+ */
+#}
+{% if issues is null %}
+  <p>
+    {{ 'Not available yet.'|t }}
+  </p>
+{% elseif issues is not empty %}
+  <ul>
+    {% for issue in issues %}
+      <li>
+        <a href="{{ issue.url }}">
+          {{ issue.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>
+    {{ 'No issues.'|t }}
+  </p>
+{% endif %}
